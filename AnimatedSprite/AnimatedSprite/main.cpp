@@ -15,6 +15,7 @@
 //
 
 #include <SFML/Graphics.hpp>
+
 #include "AnimatedSprite.hpp"
 #include <iostream>
 #include "ResourcePath.hpp"
@@ -22,52 +23,100 @@
 int main()
 {
     // setup window
-    sf::Vector2i screenDimensions(800,600);
-    sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Animations!");
+    sf::Vector2i screenDimensions(832, 216);
+    sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Intelligence");
     window.setFramerateLimit(60);
     
+    sf::Texture cityStreetTexture;
+    if(!cityStreetTexture.loadFromFile(resourcePath() + "PunisherCity.png"))
+    {
+        std::cout << "Failed to load background spritesheet!" << std::endl;
+        return 0;
+    }
+    sf::Sprite backgroundSprite(cityStreetTexture);
+
+    
     // load texture (spritesheet)
-    sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "jimmy.png"))
+    sf::Texture cloudTexture;
+    if (!cloudTexture.loadFromFile(resourcePath() + "cloudyg.png"))
+    {
+        std::cout << "Failed to load player spritesheet!" << std::endl;
+        return 1;
+    }
+    
+    sf::Texture xemnasTexture;
+    if (!xemnasTexture.loadFromFile(resourcePath() + "Xemnas.png"))
     {
         std::cout << "Failed to load player spritesheet!" << std::endl;
         return 1;
     }
     
     // set up the animations for all four directions (set spritesheet and push frames)
-    Animation walkingAnimationDown;
-    walkingAnimationDown.setSpriteSheet(texture);
-    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect(64, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect( 0, 0, 32, 32));
+    Animation cloudAnimationDown;
+    cloudAnimationDown.setSpriteSheet(cloudTexture);
+    cloudAnimationDown.addFrame(sf::IntRect(64, 0, 64, 64));
+    cloudAnimationDown.addFrame(sf::IntRect(128, 0, 64, 64));
+    cloudAnimationDown.addFrame(sf::IntRect(192, 0, 64, 64));
+    cloudAnimationDown.addFrame(sf::IntRect( 0, 0, 64, 64));
     
-    Animation walkingAnimationLeft;
-    walkingAnimationLeft.setSpriteSheet(texture);
-    walkingAnimationLeft.addFrame(sf::IntRect(32, 32, 32, 32));
-    walkingAnimationLeft.addFrame(sf::IntRect(64, 32, 32, 32));
-    walkingAnimationLeft.addFrame(sf::IntRect(32, 32, 32, 32));
-    walkingAnimationLeft.addFrame(sf::IntRect( 0, 32, 32, 32));
+    Animation cloudAnimationLeft;
+    cloudAnimationLeft.setSpriteSheet(cloudTexture);
+    cloudAnimationLeft.addFrame(sf::IntRect(64, 64, 64, 64));
+    cloudAnimationLeft.addFrame(sf::IntRect(128, 64, 64, 64));
+    cloudAnimationLeft.addFrame(sf::IntRect(192, 64, 64, 64));
+    cloudAnimationLeft.addFrame(sf::IntRect( 0, 64, 64, 64));
     
-    Animation walkingAnimationRight;
-    walkingAnimationRight.setSpriteSheet(texture);
-    walkingAnimationRight.addFrame(sf::IntRect(32, 64, 32, 32));
-    walkingAnimationRight.addFrame(sf::IntRect(64, 64, 32, 32));
-    walkingAnimationRight.addFrame(sf::IntRect(32, 64, 32, 32));
-    walkingAnimationRight.addFrame(sf::IntRect( 0, 64, 32, 32));
+    Animation cloudAnimationRight;
+    cloudAnimationRight.setSpriteSheet(cloudTexture);
+    cloudAnimationRight.addFrame(sf::IntRect(64, 128, 64, 64));
+    cloudAnimationRight.addFrame(sf::IntRect(128, 128, 64, 64));
+    cloudAnimationRight.addFrame(sf::IntRect(192, 128, 64, 64));
+    cloudAnimationRight.addFrame(sf::IntRect( 0, 128, 64, 64));
     
-    Animation walkingAnimationUp;
-    walkingAnimationUp.setSpriteSheet(texture);
-    walkingAnimationUp.addFrame(sf::IntRect(32, 96, 32, 32));
-    walkingAnimationUp.addFrame(sf::IntRect(64, 96, 32, 32));
-    walkingAnimationUp.addFrame(sf::IntRect(32, 96, 32, 32));
-    walkingAnimationUp.addFrame(sf::IntRect( 0, 96, 32, 32));
+    Animation cloudAnimationUp;
+    cloudAnimationUp.setSpriteSheet(cloudTexture);
+    cloudAnimationUp.addFrame(sf::IntRect(64, 192, 64, 64));
+    cloudAnimationUp.addFrame(sf::IntRect(128, 192, 64, 64));
+    cloudAnimationUp.addFrame(sf::IntRect(192, 192, 64, 64));
+    cloudAnimationUp.addFrame(sf::IntRect( 0, 192, 64, 64));
     
-    Animation* currentAnimation = &walkingAnimationDown;
+    Animation xemnasAnimationDown;
+    xemnasAnimationDown.setSpriteSheet(xemnasTexture);
+    xemnasAnimationDown.addFrame(sf::IntRect(64, 0, 64, 64));
+    xemnasAnimationDown.addFrame(sf::IntRect(128, 0, 64, 64));
+    xemnasAnimationDown.addFrame(sf::IntRect(192, 0, 64, 64));
+    xemnasAnimationDown.addFrame(sf::IntRect( 0, 0, 64, 64));
+    
+    Animation xemnasAnimationLeft;
+    xemnasAnimationLeft.setSpriteSheet(xemnasTexture);
+    xemnasAnimationLeft.addFrame(sf::IntRect(64, 64, 64, 64));
+    xemnasAnimationLeft.addFrame(sf::IntRect(128, 64, 64, 64));
+    xemnasAnimationLeft.addFrame(sf::IntRect(192, 64, 64, 64));
+    xemnasAnimationLeft.addFrame(sf::IntRect( 0, 64, 64, 64));
+    
+    Animation xemnasAnimationRight;
+    xemnasAnimationRight.setSpriteSheet(xemnasTexture);
+    xemnasAnimationRight.addFrame(sf::IntRect(64, 128, 64, 64));
+    xemnasAnimationRight.addFrame(sf::IntRect(128, 128, 64, 64));
+    xemnasAnimationRight.addFrame(sf::IntRect(192, 128, 64, 64));
+    xemnasAnimationRight.addFrame(sf::IntRect( 0, 128, 64, 64));
+    
+    Animation xemnasAnimationUp;
+    xemnasAnimationUp.setSpriteSheet(xemnasTexture);
+    xemnasAnimationUp.addFrame(sf::IntRect(64, 192, 64, 64));
+    xemnasAnimationUp.addFrame(sf::IntRect(128, 192, 64, 64));
+    xemnasAnimationUp.addFrame(sf::IntRect(192, 192, 64, 64));
+    xemnasAnimationUp.addFrame(sf::IntRect( 0, 192, 64, 64));
+    
+    Animation* currentCloudAnim = &cloudAnimationDown;
+    Animation* currentXemnasAnim = &xemnasAnimationDown;
     
     // set up AnimatedSprite
-    AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
-    animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
+    AnimatedSprite cloudSprite(sf::seconds(0.2), true, false);
+    cloudSprite.setPosition(sf::Vector2f(screenDimensions / 3));
+    
+    AnimatedSprite xemnasSprite(sf::seconds(0.2), true, false);
+    xemnasSprite.setPosition(sf::Vector2f(screenDimensions * 2 / 3));
     
     sf::Clock frameClock;
     
@@ -91,44 +140,52 @@ int main()
         sf::Vector2f movement(0.f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            currentAnimation = &walkingAnimationUp;
+            currentCloudAnim = &cloudAnimationUp;
             movement.y -= speed;
             noKeyWasPressed = false;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            currentAnimation = &walkingAnimationDown;
+            currentCloudAnim = &cloudAnimationDown;
             movement.y += speed;
             noKeyWasPressed = false;
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            currentAnimation = &walkingAnimationLeft;
+            currentCloudAnim = &cloudAnimationLeft;
             movement.x -= speed;
             noKeyWasPressed = false;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            currentAnimation = &walkingAnimationRight;
+            currentCloudAnim = &cloudAnimationRight;
             movement.x += speed;
             noKeyWasPressed = false;
         }
-        animatedSprite.play(*currentAnimation);
-        animatedSprite.move(movement * frameTime.asSeconds());
+        
+        
+        
+        cloudSprite.play(*currentCloudAnim);
+        xemnasSprite.play(*currentXemnasAnim);
+        cloudSprite.move(movement * frameTime.asSeconds());
+        xemnasSprite.move(movement * frameTime.asSeconds());
         
         // if no key was pressed stop the animation
         if (noKeyWasPressed)
         {
-            animatedSprite.stop();
+            cloudSprite.stop();
         }
         noKeyWasPressed = true;
         
         // update AnimatedSprite
-        animatedSprite.update(frameTime);
+        cloudSprite.update(frameTime);
+        xemnasSprite.update(frameTime);
         
         // draw
         window.clear();
-        window.draw(animatedSprite);
+        window.draw(backgroundSprite);
+        window.draw(cloudSprite);
+        window.draw(xemnasSprite);
         window.display();
     }
     

@@ -11,7 +11,10 @@
 		2D2B76351BB759AA00D9C9D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B76341BB759AA00D9C9D3 /* main.cpp */; };
 		2D2B76461BB759DF00D9C9D3 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B76441BB759DF00D9C9D3 /* Animation.cpp */; };
 		2D2B76491BB759E900D9C9D3 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B76471BB759E900D9C9D3 /* AnimatedSprite.cpp */; };
-		2D2B764B1BB75B7400D9C9D3 /* jimmy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B764A1BB75B7400D9C9D3 /* jimmy.png */; };
+		2DAC1BD51BCB6969003599D6 /* cloudyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC1BD41BCB6969003599D6 /* cloudyg.png */; };
+		2DAC1BDA1BCB6D4C003599D6 /* NPCdataTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC1BD81BCB6D4C003599D6 /* NPCdataTable.cpp */; };
+		2DAC1BDD1BCB6F7F003599D6 /* PunisherCity.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC1BDC1BCB6F7F003599D6 /* PunisherCity.png */; };
+		2DF0BA631BCB76900094BB8E /* Xemnas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DF0BA621BCB76900094BB8E /* Xemnas.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +27,11 @@
 		2D2B76451BB759DF00D9C9D3 /* Animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
 		2D2B76471BB759E900D9C9D3 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		2D2B76481BB759E900D9C9D3 /* AnimatedSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatedSprite.hpp; sourceTree = "<group>"; };
-		2D2B764A1BB75B7400D9C9D3 /* jimmy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jimmy.png; sourceTree = "<group>"; };
+		2DAC1BD41BCB6969003599D6 /* cloudyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudyg.png; sourceTree = "<group>"; };
+		2DAC1BD81BCB6D4C003599D6 /* NPCdataTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NPCdataTable.cpp; sourceTree = "<group>"; };
+		2DAC1BD91BCB6D4C003599D6 /* NPCdataTable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NPCdataTable.hpp; sourceTree = "<group>"; };
+		2DAC1BDC1BCB6F7F003599D6 /* PunisherCity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PunisherCity.png; sourceTree = "<group>"; };
+		2DF0BA621BCB76900094BB8E /* Xemnas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Xemnas.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +83,9 @@
 		2D2B76361BB759AA00D9C9D3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B764A1BB75B7400D9C9D3 /* jimmy.png */,
+				2DF0BA621BCB76900094BB8E /* Xemnas.png */,
+				2DAC1BDC1BCB6F7F003599D6 /* PunisherCity.png */,
+				2DAC1BD41BCB6969003599D6 /* cloudyg.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -91,6 +100,8 @@
 				2D2B76471BB759E900D9C9D3 /* AnimatedSprite.cpp */,
 				2D2B76481BB759E900D9C9D3 /* AnimatedSprite.hpp */,
 				2D2B76341BB759AA00D9C9D3 /* main.cpp */,
+				2DAC1BD81BCB6D4C003599D6 /* NPCdataTable.cpp */,
+				2DAC1BD91BCB6D4C003599D6 /* NPCdataTable.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,7 +163,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D2B764B1BB75B7400D9C9D3 /* jimmy.png in Resources */,
+				2DAC1BDD1BCB6F7F003599D6 /* PunisherCity.png in Resources */,
+				2DF0BA631BCB76900094BB8E /* Xemnas.png in Resources */,
+				2DAC1BD51BCB6969003599D6 /* cloudyg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D2B76351BB759AA00D9C9D3 /* main.cpp in Sources */,
+				2DAC1BDA1BCB6D4C003599D6 /* NPCdataTable.cpp in Sources */,
 				2D2B76491BB759E900D9C9D3 /* AnimatedSprite.cpp in Sources */,
 				2D2B76321BB759AA00D9C9D3 /* ResourcePath.mm in Sources */,
 				2D2B76461BB759DF00D9C9D3 /* Animation.cpp in Sources */,
